@@ -4,6 +4,7 @@ import FleetManagement.model.Usuario;
 import FleetManagement.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
 
     @Autowired
-    private BCryptPasswordEncoder passwordEncoder; //Resolver problema do bean
+    private PasswordEncoder passwordEncoder;
 
     public List<Usuario> findAll() {
         return usuarioRepository.findAll();

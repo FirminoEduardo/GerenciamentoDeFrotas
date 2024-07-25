@@ -1,19 +1,24 @@
 package FleetManagement.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Veiculo {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String modelo;
-    private String ano;
     private String placa;
+    private String ano;
     private String status;
+
+    @OneToMany(mappedBy = "veiculo", cascade = CascadeType.ALL)
+    private List<Manutencao> manutencoes;
+
+    // Getters e setters
 
     public long getId() {
         return id;

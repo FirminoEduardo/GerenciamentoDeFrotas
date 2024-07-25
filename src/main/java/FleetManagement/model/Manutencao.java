@@ -1,16 +1,18 @@
 package FleetManagement.model;
 
 import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
 @Entity
 public class Manutencao {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "veiculo_id")
+    @JoinColumn(name = "veiculo_id", nullable = false)
     private Veiculo veiculo;
 
     private LocalDate data;
