@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UsuarioService {
+
     @Autowired
     private UsuarioRepository usuarioRepository;
 
@@ -15,6 +16,7 @@ public class UsuarioService {
     private PasswordEncoder passwordEncoder;
 
     public Usuario save(Usuario usuario) {
+        // Codificar a senha antes de salvar
         usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
         return usuarioRepository.save(usuario);
     }

@@ -3,6 +3,7 @@ package FleetManagement.controller;
 import FleetManagement.model.Veiculo;
 import FleetManagement.service.VeiculoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,8 +20,8 @@ public class VeiculoController {
     }
 
     @PostMapping
-    public Veiculo createVeiculo(@RequestBody Veiculo veiculo) {
-        return veiculoService.save(veiculo);
+    public ResponseEntity<Veiculo> addVeiculo(@RequestBody Veiculo veiculo) {
+        return ResponseEntity.ok(veiculoService.save(veiculo));
     }
 
     @DeleteMapping("/{id}")
